@@ -9,42 +9,32 @@ namespace CarSamsar
 {
     public class LogIn
     {
-        private MySqlCommand command = new MySqlCommand();
-        private MySqlConnection connection;
-        private String username;
-        private String password;
-        private String attempt = "Failed";
+        private string username;
+        private string password;
+        private string attempt = "Failed";
 
-        /*
-        int ok;
-        public LogIn(int n) {
-          this.ok = n;
-        }
-
-        public void scr()
-        {
-           Console.WriteLine("ok");
-        }*/
-        public LogIn(String username, String password)
+        public LogIn(string username, string password)
         {
             this.username = username;
             this.password = password;
         }
-        public String LogInAttempt()
+
+        public string LogInAttempt()
         {
-            connection = new MySqlConnection("Datasource = 127.0.0.1;username=root;password=;database=carsamsar");
-            connection.Open();
-            command.Connection = connection;
-            command.CommandText = "select * from users where Username ='" + this.username + "' and Password = '" + this.password + "';";
-            MySqlDataReader dataReader = command.ExecuteReader();
+            DBConnection.Connect();
+            if (DBConnection.IsConnected() == false)
+            {
+                return attempt = "DB connection failed";
+            }
+            MySqlDataReader dataReader = DBConnection.Command("select * from users where Username ='" + username +
+                "' and Password = '" + password + "';").ExecuteReader();
             if (dataReader.Read())
             {
-                if (this.username.Equals(dataReader["Username"]) && this.password.Equals(dataReader["Password"]))
+                if (username.Equals(dataReader["Username"]) && password.Equals(dataReader["Password"]))
                 {
                     attempt = "Successful";
                 }
             }
-            connection.Close();
             return attempt;
         }
     }
