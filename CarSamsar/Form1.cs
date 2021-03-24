@@ -39,6 +39,17 @@ namespace CarSamsar
             else MessageBox.Show("Failed to connect to database, please try again !", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RegisterForm f2 = new RegisterForm();
+            f2.ShowDialog(); // Shows Form2
+        }
     }
 }
 
