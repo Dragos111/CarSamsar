@@ -12,6 +12,7 @@ namespace CarSamsar
         private string username;
         private string password;
         private string attempt = "Failed";
+        private int fieldLength = 20;
 
         public LogIn(string username, string password)
         {
@@ -26,6 +27,9 @@ namespace CarSamsar
             {
                 return attempt = "DB connection failed";
             }
+
+            if (username.Length > fieldLength || password.Length > fieldLength) return attempt = "Too long";
+
             MySqlDataReader dataReader = DBConnection.Command("select * from users where Username ='" + username +
                 "' and Password = '" + password + "';").ExecuteReader();
             if (dataReader.Read())

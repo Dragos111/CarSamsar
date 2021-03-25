@@ -52,11 +52,17 @@ namespace CarSamsar
                 else if (attempt.Equals("Username already taken"))
                     MessageBox.Show("Username already taken !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (attempt.Equals("Wrong key"))
+                    MessageBox.Show("Wrong enrolment key !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (attempt.Equals("Too long"))
+                    MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else MessageBox.Show("Failed to connect to database, please try again !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
             }
+            else MessageBox.Show("Please fill al the fields !", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

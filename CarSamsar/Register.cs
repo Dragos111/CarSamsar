@@ -13,12 +13,14 @@ namespace CarSamsar
         private string password;
         private string key;
         private string attempt = "Failed";
+        private int fieldLength = 20;
 
         public Register(string username, string password, string key)
         {
             this.username = username;
             this.password = password;
             this.key = key;
+
         }
 
         public string RegisterAttempt()
@@ -28,13 +30,24 @@ namespace CarSamsar
             {
                 return attempt = "DB connection failed";
             }
-            MySqlDataReader dataReader = DBConnection.Command("select * from users where Username ='" + username + "';").ExecuteReader();
 
+            if (username.Length > fieldLength || password.Length > fieldLength || key.Length > fieldLength) return attempt = "Too long";
+
+            MySqlDataReader dataReader = DBConnection.Command("select * from users where Username ='" + username + "';").ExecuteReader();
             if (dataReader.Read())
             {
                 if (username.Equals(dataReader["Username"])) return attempt = "Username already taken";
             }
             dataReader.Close();
+
+            dataReader = DBConnection.Command("select * from enrolmentkeys where Cheie ='" + key + "';").ExecuteReader();
+            if (!dataReader.Read())
+            {
+                return attempt = "Wrong key";
+            }
+            dataReader.Close();
+
+
             DBConnection.Command("insert into users(username,password) values('" + username + "','" + password + "');").ExecuteNonQuery();
 
             dataReader = DBConnection.Command("select * from users where Username ='" + username +
@@ -46,6 +59,8 @@ namespace CarSamsar
                     attempt = "Successful";
                 }
             }
+
+            dataReader.Close();
 
             return attempt;
         }

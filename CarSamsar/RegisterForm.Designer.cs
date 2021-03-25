@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.Text1 = new System.Windows.Forms.TextBox();
             this.Text2 = new System.Windows.Forms.TextBox();
             this.Text3 = new System.Windows.Forms.TextBox();
