@@ -38,17 +38,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.employeesTab = new System.Windows.Forms.TabPage();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.salaryTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.cnpTextBox = new System.Windows.Forms.TextBox();
+            this.lastnameTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.carsTab = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lastnameTextBox = new System.Windows.Forms.TextBox();
-            this.cnpTextBox = new System.Windows.Forms.TextBox();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
-            this.salaryTextBox = new System.Windows.Forms.TextBox();
-            this.removeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.employeesTab.SuspendLayout();
@@ -168,13 +168,87 @@
             this.employeesTab.UseVisualStyleBackColor = true;
             this.employeesTab.Click += new System.EventHandler(this.employeesTab_Click);
             // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(313, 366);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(120, 26);
+            this.removeButton.TabIndex = 18;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // salaryTextBox
+            // 
+            this.salaryTextBox.Location = new System.Drawing.Point(377, 240);
+            this.salaryTextBox.Name = "salaryTextBox";
+            this.salaryTextBox.Size = new System.Drawing.Size(117, 20);
+            this.salaryTextBox.TabIndex = 17;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(377, 199);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(119, 20);
+            this.addressTextBox.TabIndex = 16;
+            // 
+            // cnpTextBox
+            // 
+            this.cnpTextBox.Location = new System.Drawing.Point(377, 157);
+            this.cnpTextBox.Name = "cnpTextBox";
+            this.cnpTextBox.Size = new System.Drawing.Size(119, 20);
+            this.cnpTextBox.TabIndex = 15;
+            // 
+            // lastnameTextBox
+            // 
+            this.lastnameTextBox.Location = new System.Drawing.Point(133, 286);
+            this.lastnameTextBox.Name = "lastnameTextBox";
+            this.lastnameTextBox.Size = new System.Drawing.Size(119, 20);
+            this.lastnameTextBox.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(313, 244);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Salary";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(310, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Address";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(320, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "CNP";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 289);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Last Name";
+            // 
             // carsTab
             // 
             this.carsTab.Controls.Add(this.pictureBox2);
             this.carsTab.Location = new System.Drawing.Point(4, 22);
             this.carsTab.Name = "carsTab";
             this.carsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.carsTab.Size = new System.Drawing.Size(590, 462);
+            this.carsTab.Size = new System.Drawing.Size(590, 429);
             this.carsTab.TabIndex = 1;
             this.carsTab.Text = "Cars";
             this.carsTab.UseVisualStyleBackColor = true;
@@ -189,79 +263,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 289);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Last Name";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(320, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "CNP";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(310, 202);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Address";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(313, 244);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Salary";
-            // 
-            // lastnameTextBox
-            // 
-            this.lastnameTextBox.Location = new System.Drawing.Point(133, 286);
-            this.lastnameTextBox.Name = "lastnameTextBox";
-            this.lastnameTextBox.Size = new System.Drawing.Size(119, 20);
-            this.lastnameTextBox.TabIndex = 14;
-            // 
-            // cnpTextBox
-            // 
-            this.cnpTextBox.Location = new System.Drawing.Point(377, 157);
-            this.cnpTextBox.Name = "cnpTextBox";
-            this.cnpTextBox.Size = new System.Drawing.Size(119, 20);
-            this.cnpTextBox.TabIndex = 15;
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Location = new System.Drawing.Point(377, 199);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(119, 20);
-            this.addressTextBox.TabIndex = 16;
-            // 
-            // salaryTextBox
-            // 
-            this.salaryTextBox.Location = new System.Drawing.Point(377, 240);
-            this.salaryTextBox.Name = "salaryTextBox";
-            this.salaryTextBox.Size = new System.Drawing.Size(117, 20);
-            this.salaryTextBox.TabIndex = 17;
-            // 
-            // removeButton
-            // 
-            this.removeButton.Location = new System.Drawing.Point(313, 366);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(120, 26);
-            this.removeButton.TabIndex = 18;
-            this.removeButton.Text = "Remove";
-            this.removeButton.UseVisualStyleBackColor = true;
             // 
             // AdminLoginForm
             // 

@@ -42,13 +42,11 @@ namespace CarSamsar
             {
                 register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
                     lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
-                
+
                 string attempt = register.RegisterAttempt();
                 if (attempt.Equals("Successful"))
-                {
                     MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
-                }
                 else if (attempt.Equals("Username already taken"))
                     MessageBox.Show("Username already taken !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -89,6 +87,17 @@ namespace CarSamsar
         private void employeesTab_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        { //Remove by CNP/Username
+            string attempt = RemoveRecord.removeUserByUsername(usernameTextBox.Text);
+            if (attempt.Equals("Successful"))
+                MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+            else if (attempt.Equals("Failed"))
+                MessageBox.Show("Could not perform operation. Please enter either the 'username' or the 'cnp'", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

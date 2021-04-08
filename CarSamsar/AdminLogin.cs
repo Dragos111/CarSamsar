@@ -47,21 +47,29 @@ namespace CarSamsar
             MySqlDataReader dataReader = DBConnection.Command("select * from dateLogare where nume ='" + username + "';").ExecuteReader();
             if (dataReader.Read())
             {
-                if (username.Equals(dataReader["nume"])) return attempt = "Username already taken";
+                if (username.Equals(dataReader["nume"]))
+                {
+                    return attempt = "Username already taken";
+                }
             }
             dataReader.Close();
+
 
             dataReader = DBConnection.Command("select * from angajati where cnp ='" + cnp + "';").ExecuteReader();
             if (dataReader.Read())
             {
-                if (cnp.Equals(dataReader["cnp"])) return attempt = "CNP already taken";
+                if (cnp.Equals(dataReader["cnp"]))
+                {
+                    return attempt = "CNP already taken";
+                }
             }
             dataReader.Close();
+
 
             DBConnection.Command("insert into angajati(nume,prenume,cnp,adresa,salariu) " +
                    "values('" + firstname + "','" + lastname + "','" + cnp + "','" + address + "','" + salary + "');").ExecuteNonQuery();
 
-            dataReader = DBConnection.Command("select angajatID from angajati where nume ='" + username + "';").ExecuteReader();
+            dataReader = DBConnection.Command("select angajatID from angajati where cnp ='" + cnp + "';").ExecuteReader();
             if (dataReader.Read()) angajatId = dataReader["angajatID"].ToString(); // Se ia id angajat pt dateLogare
             dataReader.Close();
 
@@ -69,17 +77,16 @@ namespace CarSamsar
                 "values('" + angajatId + "','" + password + "','" + username + "');").ExecuteNonQuery();
 
 
-            dataReader = DBConnection.Command("select * from angajati where nume ='" + username + //Se verifica daca s-a bagat angajatul
+            dataReader = DBConnection.Command("select * from angajati where nume ='" + firstname + //Se verifica daca s-a bagat angajatul
                "' and cnp = '" + cnp + "';").ExecuteReader();
             if (dataReader.Read())
             {
-                if (username.Equals(dataReader["nume"]) && cnp.Equals(dataReader["cnp"]))
+                if (firstname.Equals(dataReader["nume"]) && cnp.Equals(dataReader["cnp"]))
                 {
                     return attempt = "Successful";
                 }
             }
             dataReader.Close();
-
             return attempt;
         }
     }
