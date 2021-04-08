@@ -40,26 +40,53 @@ namespace CarSamsar
                 && !lastnameTextBox.Text.Equals("") && !cnpTextBox.Text.Equals("") && !addressTextBox.Text.Equals("")
                 && !salaryTextBox.Text.Equals(""))
             {
-                register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
-                    lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
-                
-                string attempt = register.RegisterAttempt();
-                if (attempt.Equals("Successful"))
+                if (CheckInputs.CheckUsernamePassword(usernameTextBox.Text))
                 {
-                    MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
-                          MessageBoxIcon.Information);
+                    if (CheckInputs.CheckUsernamePassword(passwordTextBox.Text))
+                    {
+                        if (CheckInputs.CheckUsernamePassword(firstnameTextBox.Text))
+                        {
+                            if (CheckInputs.CheckSalary(salaryTextBox.Text))
+                            {
+                                register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
+                                            lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
+                                string attempt = register.RegisterAttempt();
+                                if (attempt.Equals("Successful"))
+                                {
+                                    MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
+                                          MessageBoxIcon.Information);
+                                }
+                                else if (attempt.Equals("Username already taken"))
+                                    MessageBox.Show("Username already taken !", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else if (attempt.Equals("CNP already taken"))
+                                    MessageBox.Show("An account already exists for this CNP !", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else if (attempt.Equals("Too long"))
+                                    MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else MessageBox.Show("Failed to connect to database, please try again !", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Salary error");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Firstname error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password error");
+                    }
                 }
-                else if (attempt.Equals("Username already taken"))
-                    MessageBox.Show("Username already taken !", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (attempt.Equals("CNP already taken"))
-                    MessageBox.Show("An account already exists for this CNP !", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (attempt.Equals("Too long"))
-                    MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Failed to connect to database, please try again !", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    MessageBox.Show("Username error");
+                }
             }
             else MessageBox.Show("Please fill al the fields !", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);

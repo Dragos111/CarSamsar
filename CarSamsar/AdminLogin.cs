@@ -40,10 +40,6 @@ namespace CarSamsar
                 return attempt = "DB connection failed";
             }
 
-            if (username.Length > fieldLength || password.Length > fieldLength || firstname.Length > fieldLength
-                || lastname.Length > fieldLength || cnp.Length > fieldLength || address.Length > fieldLength
-                || salary.Length > fieldLength) return attempt = "Too long";
-
             MySqlDataReader dataReader = DBConnection.Command("select * from dateLogare where nume ='" + username + "';").ExecuteReader();
             if (dataReader.Read())
             {
