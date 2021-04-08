@@ -36,9 +36,12 @@ namespace CarSamsar
             {
                 if (username.Equals(dataReader["nume"]) && password.Equals(dataReader["parola"]))
                 {
+                    dataReader.Close();
                     attempt = "Successful";
                 }
             }
+            dataReader.Close();
+
             return attempt;
         }
 
@@ -58,9 +61,12 @@ namespace CarSamsar
             {
                 if (username.Equals(dataReader["nume"]) && password.Equals(dataReader["parola"]))
                 {
+                    dataReader.Close();
                     attempt = "Successful";
                 }
+                dataReader.Close();
             }
+            dataReader.Close();
             return attempt;
         }
     }
