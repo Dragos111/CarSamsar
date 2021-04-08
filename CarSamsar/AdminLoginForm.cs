@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CarSamsar
 {
-    public partial class RegisterForm : Form
+    public partial class AdminLoginForm : Form
     {
-        private Register register;
+        private AdminLogin register;
 
-        public RegisterForm()
+        public AdminLoginForm()
         {
             InitializeComponent();
         }
@@ -34,26 +34,26 @@ namespace CarSamsar
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void registerButton_Click(object sender, EventArgs e)
         {
-            if (!Text1.Text.Equals("") && !Text2.Text.Equals("") && !Text3.Text.Equals(""))
+            if (!usernameTextBox.Text.Equals("") && !passwordTextBox.Text.Equals("") && !firstnameTextBox.Text.Equals("")
+                && !lastnameTextBox.Text.Equals("") && !cnpTextBox.Text.Equals("") && !addressTextBox.Text.Equals("")
+                && !salaryTextBox.Text.Equals(""))
             {
-                register = new Register(Text1.Text, Text2.Text, Text3.Text);
-                Text1.Clear();
-                Text2.Clear();
-                Text3.Clear();
+                register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
+                    lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
+                
                 string attempt = register.RegisterAttempt();
                 if (attempt.Equals("Successful"))
                 {
                     MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
-                    Close();
                 }
                 else if (attempt.Equals("Username already taken"))
                     MessageBox.Show("Username already taken !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (attempt.Equals("Wrong key"))
-                    MessageBox.Show("Wrong enrolment key !", "Error",
+                else if (attempt.Equals("CNP already taken"))
+                    MessageBox.Show("An account already exists for this CNP !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (attempt.Equals("Too long"))
                     MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
@@ -65,12 +65,28 @@ namespace CarSamsar
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void clearTextBoxes()
+        {
+            usernameTextBox.Clear();
+            passwordTextBox.Clear();
+            firstnameTextBox.Clear();
+            lastnameTextBox.Clear();
+            cnpTextBox.Clear();
+            addressTextBox.Clear();
+            salaryTextBox.Clear();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeesTab_Click(object sender, EventArgs e)
         {
 
         }

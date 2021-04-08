@@ -43,7 +43,7 @@ namespace CarSamsar
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(230, 258);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 38);
             this.button1.TabIndex = 0;
@@ -74,7 +74,7 @@ namespace CarSamsar
             // Text1
             // 
             this.Text1.Location = new System.Drawing.Point(214, 136);
-            this.Text1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text1.Margin = new System.Windows.Forms.Padding(2);
             this.Text1.Name = "Text1";
             this.Text1.Size = new System.Drawing.Size(119, 20);
             this.Text1.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace CarSamsar
             // Text2
             // 
             this.Text2.Location = new System.Drawing.Point(214, 190);
-            this.Text2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Text2.Margin = new System.Windows.Forms.Padding(2);
             this.Text2.Name = "Text2";
             this.Text2.PasswordChar = '*';
             this.Text2.Size = new System.Drawing.Size(119, 20);
@@ -92,7 +92,7 @@ namespace CarSamsar
             // 
             this.pictureBox1.Image = global::CarSamsar.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(17, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(365, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -105,13 +105,15 @@ namespace CarSamsar
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 38);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Register";
+            this.button2.Text = "Admin Log In";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(408, 307);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
@@ -120,22 +122,18 @@ namespace CarSamsar
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CarSamsar";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-            //Our Properties
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
 
         }
 

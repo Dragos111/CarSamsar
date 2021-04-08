@@ -37,7 +37,7 @@ namespace CarSamsar
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (attempt.Equals("Successful"))
                     MessageBox.Show("Amu ar trebui sa sara intr-un form nou.", "Welcome",
-                        MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else if (attempt.Equals("Too long"))
                     MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,8 +55,27 @@ namespace CarSamsar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RegisterForm f2 = new RegisterForm();
-            f2.ShowDialog(); // Shows Form2
+            if (!Text1.Text.Equals("") && !Text2.Text.Equals(""))
+            {
+                login = new LogIn(Text1.Text, Text2.Text);
+                Text1.Clear();
+                Text2.Clear();
+                string attempt = login.LogInAttemptAdmin();
+                if (attempt.Equals("Failed")) MessageBox.Show("Either your username or password is incorrect !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (attempt.Equals("Successful"))
+                {
+                    AdminLoginForm f2 = new AdminLoginForm();
+                    f2.ShowDialog(); // Shows register form
+                }
+                else if (attempt.Equals("Too long"))
+                    MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Failed to connect to database, please try again !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Please fill al the fields !", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
