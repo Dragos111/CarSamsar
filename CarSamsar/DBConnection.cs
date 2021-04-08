@@ -16,7 +16,8 @@ namespace CarSamsar
 
         public static void Connect()
         {
-            connection = new MySqlConnection("Datasource = localhost;username=fitnessm_poriectII;password=MateiDavidPavelDragos;database=fitnessm_CarSamsar");
+            //connection = new MySqlConnection("Datasource = 89.46.30.130;username=root;password=;database=carsamsar");
+            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
             try
             {
                 connection.Open();
