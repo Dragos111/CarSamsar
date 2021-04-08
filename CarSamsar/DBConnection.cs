@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace CarSamsar
 {
@@ -13,11 +14,12 @@ namespace CarSamsar
     {
         private static MySqlConnection connection;
         private static MySqlCommand command;
+        public static string connectionString; //Doar pentru DBConnectionUnitTests
 
         public static void Connect()
         {
-            //connection = new MySqlConnection("Datasource = 89.46.30.130;username=root;password=;database=carsamsar");
-            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
+           // connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
+            connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
             try
             {
                 connection.Open();
@@ -50,7 +52,7 @@ namespace CarSamsar
         public static void CloseConnection()
         {
             connection.Close();
+            Console.WriteLine(connection.State);
         }
-
     }
 }

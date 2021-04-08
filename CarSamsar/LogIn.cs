@@ -41,5 +41,27 @@ namespace CarSamsar
             }
             return attempt;
         }
+
+        public string LogInAttemptAdmin()
+        {
+            DBConnection.Connect();
+            if (DBConnection.IsConnected() == false)
+            {
+                return attempt = "DB connection failed";
+            }
+
+            if (username.Length > fieldLength || password.Length > fieldLength) return attempt = "Too long";
+
+            MySqlDataReader dataReader = DBConnection.Command("select * from admin where nume ='" + username +
+                "' and parola = '" + password + "';").ExecuteReader();
+            if (dataReader.Read())
+            {
+                if (username.Equals(dataReader["nume"]) && password.Equals(dataReader["parola"]))
+                {
+                    attempt = "Successful";
+                }
+            }
+            return attempt;
+        }
     }
 }
