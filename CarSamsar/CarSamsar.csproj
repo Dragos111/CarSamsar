@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckInputs.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>

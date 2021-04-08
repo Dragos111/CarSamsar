@@ -69,7 +69,5 @@ namespace CarSamsar
             dataReader.Close();
             return attempt;
         }
-
-
     }
 }
