@@ -36,8 +36,13 @@ namespace CarSamsar
                 if (attempt.Equals("Failed")) MessageBox.Show("Either your username or password is incorrect !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (attempt.Equals("Successful"))
-                    MessageBox.Show("Amu ar trebui sa sara intr-un form nou.", "Welcome",
-                        MessageBoxButtons.OK,MessageBoxIcon.Information);
+                //MessageBox.Show("Amu ar trebui sa sara intr-un form nou.", "Welcome",
+                // MessageBoxButtons.OK,MessageBoxIcon.Information);
+                {
+                    MenuForm menuForm = new MenuForm();
+                    menuForm.ShowDialog();
+                    this.Hide();
+                }
                 else if (attempt.Equals("Too long"))
                     MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
