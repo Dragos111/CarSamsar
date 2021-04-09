@@ -16,7 +16,7 @@ namespace CarSamsar
          Returns a DataTable object wich contains the infos from "masini" table filtered by department
          If "departmentID" is null (slected "All" in deparrtmentBox) you can search all the data in "masini"
          */
-        public static DataTable searchDataByDepartment(string valueToSearch, string departmentID)
+        public static DataTable SearchDataByDepartment(string valueToSearch, string departmentID)
         {
             table.Clear();
             DBConnection.Connect();

@@ -42,7 +42,7 @@ namespace CarSamsar
             {
                 register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
                     lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
-                
+
                 string attempt = register.RegisterAttempt();
                 if (attempt.Equals("Successful"))
                 {
@@ -51,6 +51,9 @@ namespace CarSamsar
                 }
                 else if (attempt.Equals("Username already taken"))
                     MessageBox.Show("Username already taken !", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (attempt.Equals("CNP is not valid"))
+                    MessageBox.Show("CNP is not valid!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (attempt.Equals("CNP already taken"))
                     MessageBox.Show("An account already exists for this CNP !", "Error",
@@ -95,7 +98,7 @@ namespace CarSamsar
         { //Remove by CNP/Username
             string attempt = RemoveRecord.removeUserByUsername(usernameTextBox.Text);
             if (attempt.Equals("Successful"))
-                MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
+                MessageBox.Show("User successfully deleted from database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
             else if (attempt.Equals("Failed"))
                 MessageBox.Show("Could not perform operation. Please enter either the 'username' or the 'cnp'", "Error",

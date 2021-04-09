@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace CarSamsar
@@ -52,6 +53,7 @@ namespace CarSamsar
 
 
             dataReader = DBConnection.Command("select * from angajati where cnp ='" + cnp + "';").ExecuteReader();
+
             if (dataReader.Read())
             {
                 if (cnp.Equals(dataReader["cnp"]))
@@ -61,6 +63,10 @@ namespace CarSamsar
             }
             dataReader.Close();
 
+            if (!CnpValidator.IsValidCnp(cnp))
+            {
+                return attempt = "CNP is not valid";
+            }
 
             DBConnection.Command("insert into angajati(nume,prenume,cnp,adresa,salariu) " +
                    "values('" + firstname + "','" + lastname + "','" + cnp + "','" + address + "','" + salary + "');").ExecuteNonQuery();
@@ -79,6 +85,7 @@ namespace CarSamsar
             {
                 if (firstname.Equals(dataReader["nume"]) && cnp.Equals(dataReader["cnp"]))
                 {
+                    dataReader.Close();
                     return attempt = "Successful";
                 }
             }

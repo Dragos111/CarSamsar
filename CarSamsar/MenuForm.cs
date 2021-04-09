@@ -33,7 +33,7 @@ namespace CarSamsar
         {
             string valueToSearch = searchBox.Text.ToString();
             string departmentID = departmentBox.SelectedIndex.ToString();
-            searchGrid.DataSource = SearchData.searchDataByDepartment(valueToSearch, departmentID);
+            searchGrid.DataSource = SearchData.SearchDataByDepartment(valueToSearch, departmentID);
 
         }
 
