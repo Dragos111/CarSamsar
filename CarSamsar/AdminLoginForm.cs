@@ -101,5 +101,10 @@ namespace CarSamsar
                 MessageBox.Show("Could not perform operation. Please enter either the 'username' or the 'cnp'", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void cnpTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

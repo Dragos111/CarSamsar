@@ -73,6 +73,7 @@
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RemoveRecord.cs" />
+    <Compile Include="SearchData.cs" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
