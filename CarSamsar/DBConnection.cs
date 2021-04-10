@@ -14,12 +14,12 @@ namespace CarSamsar
     {
         private static MySqlConnection connection;
         private static MySqlCommand command;
-        public static string connectionString; //Doar pentru DBConnectionUnitTests
+        //public static string connectionString; //Doar pentru DBConnectionUnitTests
 
         public static void Connect()
         {
-           // connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
-            connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
+            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
+           // connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
             try
             {
                 connection.Open();
