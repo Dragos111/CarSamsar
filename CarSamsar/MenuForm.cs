@@ -21,7 +21,7 @@ namespace CarSamsar
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            searchData("");
+
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
@@ -29,33 +29,12 @@ namespace CarSamsar
 
         }
 
-        public void searchData(string valueToSearch)
-        {
-            DBConnection.Connect();
-            DataTable table = new DataTable();
-
-            string query = "Select * FROM masini WHERE CONCAT(`departamentID`,`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
-
-            string departmentID = departmentBox.SelectedIndex.ToString();
-
-            if (departmentID.Equals("0"))
-            {
-                MySqlDataAdapter adapter = new MySqlDataAdapter(DBConnection.Command(query));
-                adapter.Fill(table);
-                searchGrid.DataSource = table;
-            } else
-            {
-                string queryByDeparment = "Select * FROM masini WHERE departamentID = '" + departmentID + "' AND CONCAT(`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(DBConnection.Command(queryByDeparment));
-                adapter.Fill(table);
-                searchGrid.DataSource = table;
-            }
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             string valueToSearch = searchBox.Text.ToString();
-            searchData(valueToSearch);
+            string departmentID = departmentBox.SelectedIndex.ToString();
+            searchGrid.DataSource = SearchData.SearchDataByDepartment(valueToSearch, departmentID);
+
         }
 
     }
