@@ -17,6 +17,7 @@ namespace CarSamsar
         public MenuForm()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
@@ -34,8 +35,39 @@ namespace CarSamsar
             string valueToSearch = searchBox.Text.ToString();
             string departmentID = departmentBox.SelectedIndex.ToString();
             searchGrid.DataSource = SearchData.SearchDataByDepartment(valueToSearch, departmentID);
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
 
         }
 
+        private void webView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            webView.SuspendLayout();
+            webView.Stop();
+            webView.Visible = false;
+            webView.Hide();
+            Close();
+        }
+
+        private void exitButton2_Click(object sender, EventArgs e)
+        {
+            webView.SuspendLayout();
+            webView.Stop();
+            webView.Visible = false;
+            webView.Hide();
+            Close();
+        }
+
+        private void searchGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

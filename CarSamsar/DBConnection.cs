@@ -18,7 +18,7 @@ namespace CarSamsar
 
         public static void Connect()
         {
-            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp");
+            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi");
            // connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
             try
             {

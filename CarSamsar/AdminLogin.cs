@@ -18,7 +18,7 @@ namespace CarSamsar
         private string address;
         private string salary;
         private string attempt = "Failed";
-        private string angajatId;
+        private string angajatId; 
         private int fieldLength = 20;
 
         public AdminLogin(string username, string password, string firstname,
