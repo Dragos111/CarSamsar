@@ -20,8 +20,8 @@ namespace CarSamsar
         {
             table.Clear();
             DBConnection.Connect();
-            string queryByDeparment = "Select * FROM masini WHERE departamentID = '" + departmentID + "' AND CONCAT(`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
-            string query = "Select * FROM masini WHERE CONCAT(`departamentID`,`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
+            string queryByDeparment = "Select * FROM masini WHERE departamentID = '" + departmentID + "' AND CONCAT(`VIN`,`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
+            string query = "Select * FROM masini WHERE CONCAT(`departamentID`,`VIN`,`marca`,`pret`,`anFabricatie`,`fostiProprietari`,`Model`,`KM`) like '%" + valueToSearch + "%'";
 
             if (departmentID.Equals("0"))
             {

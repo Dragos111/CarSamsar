@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+
 
 namespace CarSamsar
 {
@@ -28,5 +24,26 @@ namespace CarSamsar
             }
             return attempt;
         }
+
+        public static string removeCarByVIN(string VIN)
+        {
+            string attempt = "Failed";
+            string car_vin = "";
+
+            MySqlDataReader dataReader = DBConnection.Command("select VIN from masini where VIN ='" + VIN + "';").ExecuteReader();
+            if (dataReader.Read())
+            {
+                car_vin = dataReader["VIN"].ToString();
+            }
+            dataReader.Close();
+            if (!car_vin.Equals(""))
+            {
+                DBConnection.Command("DELETE FROM masini WHERE VIN = '" + VIN + "'; ").ExecuteNonQuery();
+                return attempt = "Successful";
+            }
+            return attempt;
+        }
     }
 }
+
+

@@ -36,10 +36,10 @@ namespace CarSamsar
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.exitButton = new System.Windows.Forms.Button();
             this.exitButton2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.searchGrid)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -50,30 +50,29 @@ namespace CarSamsar
             // searchGrid
             // 
             this.searchGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchGrid.Location = new System.Drawing.Point(5, 62);
-            this.searchGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchGrid.Location = new System.Drawing.Point(7, 76);
+            this.searchGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchGrid.Name = "searchGrid";
             this.searchGrid.RowHeadersWidth = 51;
             this.searchGrid.RowTemplate.Height = 24;
-            this.searchGrid.Size = new System.Drawing.Size(979, 580);
+            this.searchGrid.Size = new System.Drawing.Size(1305, 714);
             this.searchGrid.TabIndex = 1;
-            this.searchGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchGrid_CellContentClick);
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(18, 17);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchBox.Location = new System.Drawing.Point(24, 21);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(204, 20);
+            this.searchBox.Size = new System.Drawing.Size(271, 22);
             this.searchBox.TabIndex = 2;
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+          
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(406, 17);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Location = new System.Drawing.Point(541, 21);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(73, 26);
+            this.searchButton.Size = new System.Drawing.Size(97, 32);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -89,17 +88,19 @@ namespace CarSamsar
             "Timisoara",
             "Iasi",
             "Constanta"});
-            this.departmentBox.Location = new System.Drawing.Point(286, 17);
-            this.departmentBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.departmentBox.Location = new System.Drawing.Point(381, 21);
+            this.departmentBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.departmentBox.Name = "departmentBox";
-            this.departmentBox.Size = new System.Drawing.Size(92, 21);
+            this.departmentBox.Size = new System.Drawing.Size(121, 24);
             this.departmentBox.TabIndex = 4;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 654);
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 810);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(992, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1323, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -108,9 +109,10 @@ namespace CarSamsar
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(992, 675);
+            this.tabControl1.Size = new System.Drawing.Size(1323, 831);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -120,25 +122,49 @@ namespace CarSamsar
             this.tabPage1.Controls.Add(this.searchBox);
             this.tabPage1.Controls.Add(this.searchButton);
             this.tabPage1.Controls.Add(this.departmentBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(984, 649);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1315, 802);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cars";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // exitButton2
+            // 
+            this.exitButton2.Location = new System.Drawing.Point(1212, 0);
+            this.exitButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton2.Name = "exitButton2";
+            this.exitButton2.Size = new System.Drawing.Size(100, 28);
+            this.exitButton2.TabIndex = 5;
+            this.exitButton2.Text = "Exit";
+            this.exitButton2.UseVisualStyleBackColor = true;
+            this.exitButton2.Click += new System.EventHandler(this.exitButton2_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.exitButton);
             this.tabPage2.Controls.Add(this.webView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(984, 649);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1315, 802);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employees Chat";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(1212, 0);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(100, 28);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // webView
             // 
@@ -148,47 +174,27 @@ namespace CarSamsar
             this.webView.CreationProperties = null;
             this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView.Location = new System.Drawing.Point(0, 0);
+            this.webView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.webView.Name = "webView";
-            this.webView.Size = new System.Drawing.Size(984, 649);
+            this.webView.Size = new System.Drawing.Size(1312, 799);
             this.webView.Source = new System.Uri("https://fitnessmetabolic.ro/backend/index2.html", System.UriKind.Absolute);
             this.webView.TabIndex = 0;
             this.webView.ZoomFactor = 1D;
-            this.webView.Click += new System.EventHandler(this.webView_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.Location = new System.Drawing.Point(909, 0);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // exitButton2
-            // 
-            this.exitButton2.Location = new System.Drawing.Point(909, 0);
-            this.exitButton2.Name = "exitButton2";
-            this.exitButton2.Size = new System.Drawing.Size(75, 23);
-            this.exitButton2.TabIndex = 5;
-            this.exitButton2.Text = "Exit";
-            this.exitButton2.UseVisualStyleBackColor = true;
-            this.exitButton2.Click += new System.EventHandler(this.exitButton2_Click);
             // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(992, 676);
+            this.ClientSize = new System.Drawing.Size(1323, 832);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
-            this.Load += new System.EventHandler(this.MenuForm_Load);
+          
             ((System.ComponentModel.ISupportInitialize)(this.searchGrid)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

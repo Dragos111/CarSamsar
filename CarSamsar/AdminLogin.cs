@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace CarSamsar
 {
@@ -18,8 +12,8 @@ namespace CarSamsar
         private string address;
         private string salary;
         private string attempt = "Failed";
-        private string angajatId; 
-        private int fieldLength = 20;
+        private string angajatId;
+
 
         public AdminLogin(string username, string password, string firstname,
             string lastname, string cnp, string address, string salary)
