@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-using System.Web;
-using System.Net.Mail;
-
 namespace CarSamsar
 {
 
@@ -82,17 +79,6 @@ namespace CarSamsar
             }
             else MessageBox.Show("Please fill al the fields !", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {                                           //from
-            MailMessage mail = new MailMessage("carsamsar@gmail.com", "carsamsar@gmail.com", "Subiect", "Mesaj \n Mesaj2");
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
-            client.Port = 587;
-            client.Credentials = new System.Net.NetworkCredential("carsamsar@gmail.com", "proiect1234");
-            client.EnableSsl = true;
-            client.Send(mail);
-            MessageBox.Show("Mail Sent", "Success", MessageBoxButtons.OK);
         }
     }
 }
