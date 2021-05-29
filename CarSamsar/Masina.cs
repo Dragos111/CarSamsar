@@ -3,7 +3,7 @@
 
 namespace CarSamsar
 {
-    class Masina
+    public class Masina
     {
         private string departmentId;
         private string seria_VIN;

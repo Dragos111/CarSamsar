@@ -2,7 +2,7 @@
 
 namespace CarSamsar
 {
-    class AdminLogin
+    public class AdminLogin
     {
         private string username;
         private string password;

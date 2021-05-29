@@ -10,7 +10,7 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttempt_ReturnsDBConnectionFailed()
         {
-            DBConnection.connectionString = "server=s11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZa";
             DBConnection.Connect();
 
             var login = new LogIn("test", "test");
@@ -23,10 +23,10 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttempt_ReturnsSuccessful()
         {
-            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi";
             DBConnection.Connect();
 
-            var login = new LogIn("pavel", "pavel");
+            var login = new LogIn("matei", "matei");
 
             var result = login.LogInAttempt();
 
@@ -36,7 +36,7 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttempt_ReturnsFailed()
         {
-            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi";
             DBConnection.Connect();
 
             var login = new LogIn("pavel", "abc");
@@ -49,7 +49,7 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttemptAdmin_ReturnsDBConnectionFailed()
         {
-            DBConnection.connectionString = "server=s11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZa";
             DBConnection.Connect();
 
             var login = new LogIn("test", "test");
@@ -62,7 +62,7 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttemptAdmin_ReturnsFailed()
         {
-            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi";
             DBConnection.Connect();
 
             var login = new LogIn("test", "test");
@@ -75,7 +75,7 @@ namespace TestCarSamsar.UnitTests
         [TestMethod]
         public void LogIn_LogInAttemptAdmin_ReturnsSuccessful()
         {
-            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11403541;database=sql11403541;port=3306;password=kUFVMDviwp";
+            DBConnection.connectionString = "server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi";
             DBConnection.Connect();
 
             var login = new LogIn("admin", "admin");

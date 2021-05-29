@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CarSamsar
 {
-    class CnpValidator
+    public class CnpValidator
     {
         static readonly string strRegex = "([1-9])([0-9]\\d|[0-9])(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])(0[1-9]|[1-4]\\d|5[0-2]|99)(00[1-9]|0[1-9]\\d|[1-9]\\d\\d)\\d$";
         static readonly Regex re = new Regex(strRegex);

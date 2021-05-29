@@ -63,8 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminLoginUnitTests.cs" />
+    <Compile Include="CheckInputsUnitTests.cs" />
+    <Compile Include="CnpValidatorUnitTestscs.cs" />
     <Compile Include="DBConnectionUnitTests.cs" />
     <Compile Include="LogInUnitTests.cs" />
+    <Compile Include="LogsUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -50,6 +50,7 @@ namespace CarSamsar
             DBConnection.Connect();
             if (DBConnection.IsConnected() == false)
             {
+                Console.WriteLine("Ad");
                 return attempt = "DB connection failed";
             }
 
