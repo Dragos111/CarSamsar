@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,24 +32,34 @@ namespace CarSamsar
             if (!Text1.Text.Equals("") && !Text2.Text.Equals(""))
             {
                 login = new LogIn(Text1.Text, Text2.Text);
-                Text1.Clear();
-                Text2.Clear();
+
                 string attempt = login.LogInAttempt();
-                if (attempt.Equals("Failed")) MessageBox.Show("Either your username or password is incorrect !", "Error",
+                if (attempt.Equals("Failed"))
+                {
+                    MessageBox.Show("Either your username or password is incorrect !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addLog(Text1.Text, " UserLogin ", attempt + " ");
+                }
                 else if (attempt.Equals("Successful"))
                 {
                     MenuForm menuForm = new MenuForm();
                     menuForm.ShowDialog();
+                    Logs.addLog(Text1.Text, " UserLogin ", attempt + " ");
                 }
                 else if (attempt.Equals("Too long"))
                     MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Failed to connect to database, please try again !", "Error",
+                else
+                {
+                    MessageBox.Show("Failed to connect to database, please try again !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addLog(Text1.Text, " UserLogin ", " Failed(database problems) ");
+                }
             }
             else MessageBox.Show("Please fill al the fields !", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Text1.Clear();
+            Text2.Clear();
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -61,24 +72,43 @@ namespace CarSamsar
             if (!Text1.Text.Equals("") && !Text2.Text.Equals(""))
             {
                 login = new LogIn(Text1.Text, Text2.Text);
-                Text1.Clear();
-                Text2.Clear();
+
                 string attempt = login.LogInAttemptAdmin();
-                if (attempt.Equals("Failed")) MessageBox.Show("Either your username or password is incorrect !", "Error",
+                if (attempt.Equals("Failed"))
+                {
+                    MessageBox.Show("Either your username or password is incorrect !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addLog(Text1.Text, " AdminLogin ", attempt + " ");
+                }
                 else if (attempt.Equals("Successful"))
                 {
                     AdminLoginForm f2 = new AdminLoginForm();
                     f2.ShowDialog(); // Shows register form
+                    Logs.addLog(Text1.Text, " AdminLogin ", attempt + " ");
                 }
                 else if (attempt.Equals("Too long"))
                     MessageBox.Show("Please enter maximum 20 characters for each field !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("Failed to connect to database, please try again !", "Error",
+                else
+                {
+                    MessageBox.Show("Failed to connect to database, please try again !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addLog(Text1.Text, " AdminLogin ", "Failed(database problems) ");
+                }
             }
             else MessageBox.Show("Please fill al the fields !", "Error",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Text1.Clear();
+            Text2.Clear();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // uncomment this only if you have created "Logs.txt" in \CarSamsar\bin\Debug
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs.txt");
+            File.WriteAllLines(path, Logs.getLogs().Cast<string>());
+            MessageBox.Show(path);
+            Application.Exit();
         }
     }
 }

@@ -29,13 +29,20 @@ namespace CarSamsar
                 {
                     MessageBox.Show("User successfully added to database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+                    Logs.addUserLog("admin ", " AddUser ", attempt, usernameTextBox.Text);
                 }
                 else if (attempt.Equals("Username already taken"))
+                {
                     MessageBox.Show("Username already taken !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addUserLog("admin ", " AddUser ", attempt + "(username already taken) ", usernameTextBox.Text);
+                }
                 else if (attempt.Equals("CNP is not valid"))
+                {
                     MessageBox.Show("CNP is not valid!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logs.addUserLog("admin ", " AddUser ", attempt + "(CNP is not valid) ", usernameTextBox.Text);
+                }
                 else if (attempt.Equals("CNP already taken"))
                     MessageBox.Show("An account already exists for this CNP !", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,11 +72,17 @@ namespace CarSamsar
         { //Remove by CNP/Username
             string attempt = RemoveRecord.removeUserByUsername(usernameTextBox.Text);
             if (attempt.Equals("Successful"))
+            {
                 MessageBox.Show("User successfully deleted from database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
+                Logs.addUserLog("admin ", " RemoveUser ", attempt + " ", usernameTextBox.Text);
+            }
             else if (attempt.Equals("Failed"))
+            {
                 MessageBox.Show("Could not perform operation. Please enter a valid 'username' or 'cnp'", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logs.addUserLog("admin ", " RemoveUser ", attempt + " ", usernameTextBox.Text);
+            }
         }
 
 
@@ -111,6 +124,8 @@ namespace CarSamsar
 
                     masina.RegisterAttempt();
 
+                    Logs.addCarLog("admin", " AddCar ", "Successful ", "VIN: " + VIN_textbox.Text);
+
                     MessageBox.Show("Car successfully added to database.", "Welcome", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                     clearDateMasini();
@@ -120,6 +135,9 @@ namespace CarSamsar
 
                     MessageBox.Show("Car is already registered!", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    Logs.addCarLog("admin", " AddCar ", "Failed ", "VIN: " + VIN_textbox.Text);
+
                     clearDateMasini();
 
                 }
@@ -139,12 +157,15 @@ namespace CarSamsar
                 MessageBox.Show("Car successfully deleted from database.", "Welcome", MessageBoxButtons.OK,
                           MessageBoxIcon.Information);
                 VIN_textbox.Clear();
+
+                Logs.addCarLog("admin", " RemoveCar ", "Successful ", "VIN: " + VIN_textbox.Text);
             }
             else if (attempt.Equals("Failed"))
             {
                 MessageBox.Show("Could not perform operation. VIN could not be found.", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 VIN_textbox.Clear();
+                Logs.addCarLog("admin", " RemoveCar ", "Failed ", "VIN: " + VIN_textbox.Text + " could not be found");
             }
         }
     }
