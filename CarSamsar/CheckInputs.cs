@@ -18,7 +18,7 @@ namespace CarSamsar
             return true;
         }
 
-        public static bool CheckSalary(string input)
+        public static bool CheckIfDigit(string input)
         {
             if (input.Any(char.IsDigit))
             {

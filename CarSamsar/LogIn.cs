@@ -7,6 +7,9 @@ using MySql.Data.MySqlClient;
 
 namespace CarSamsar
 {
+    /**
+     * Used to check if entered credentials match with database.
+     */
     public class LogIn
     {
         private string username;
@@ -19,7 +22,9 @@ namespace CarSamsar
             this.username = username;
             this.password = password;
         }
-
+        /**
+         * Attempt to login as employee
+        */
         public string LogInAttempt()
         {
             DBConnection.Connect();
@@ -32,7 +37,7 @@ namespace CarSamsar
 
             MySqlDataReader dataReader = DBConnection.Command("select * from dateLogare where nume ='" + username +
                 "' and parola = '" + password + "';").ExecuteReader();
-            if (dataReader.Read())
+            if (dataReader.Read())//Check if entered credentials match with database.
             {
                 if (username.Equals(dataReader["nume"]) && password.Equals(dataReader["parola"]))
                 {
@@ -44,7 +49,9 @@ namespace CarSamsar
 
             return attempt;
         }
-
+        /**
+         * Attempt to login as Admin
+        */
         public string LogInAttemptAdmin()
         {
             DBConnection.Connect();
@@ -58,7 +65,7 @@ namespace CarSamsar
 
             MySqlDataReader dataReader = DBConnection.Command("select * from admin where nume ='" + username +
                 "' and parola = '" + password + "';").ExecuteReader();
-            if (dataReader.Read())
+            if (dataReader.Read())//Check if entered credentials match with database.
             {
                 if (username.Equals(dataReader["nume"]) && password.Equals(dataReader["parola"]))
                 {

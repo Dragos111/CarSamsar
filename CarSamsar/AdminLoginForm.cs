@@ -13,14 +13,13 @@ namespace CarSamsar
             InitializeComponent();
         }
 
-
-
         private void registerButton_Click(object sender, EventArgs e)
         {
             if (!usernameTextBox.Text.Equals("") && !passwordTextBox.Text.Equals("") && !firstnameTextBox.Text.Equals("")
                 && !lastnameTextBox.Text.Equals("") && !cnpTextBox.Text.Equals("") && !addressTextBox.Text.Equals("")
                 && !salaryTextBox.Text.Equals(""))
             {
+           
                 register = new AdminLogin(usernameTextBox.Text, passwordTextBox.Text, firstnameTextBox.Text,
                     lastnameTextBox.Text, cnpTextBox.Text, addressTextBox.Text, salaryTextBox.Text);
 
@@ -67,7 +66,6 @@ namespace CarSamsar
             salaryTextBox.Clear();
         }
 
-
         private void removeButton_Click(object sender, EventArgs e)
         { //Remove by CNP/Username
             string attempt = RemoveRecord.removeUserByUsername(usernameTextBox.Text);
@@ -85,8 +83,6 @@ namespace CarSamsar
             }
         }
 
-
-
         public void clearDateMasini()
         {
             department_textbox.Clear();
@@ -99,54 +95,64 @@ namespace CarSamsar
             km_textbox.Clear();
         }
 
-      
         private void register_car_Click_1(object sender, EventArgs e)
         {
             if (!department_textbox.Text.Equals("") && !VIN_textbox.Text.Equals("") && !marca_textbox.Text.Equals("") && !pret_textbox.Text.Equals("")
                && !an_textbox.Text.Equals("") && !proprietari_textbox.Text.Equals("") && !model_textbox.Equals("")
                 && !km_textbox.Text.Equals(""))
             {
-                DBConnection.Connect();
-                if (DBConnection.IsConnected() == false)
+                if (!CheckInputs.CheckIfDigit(department_textbox.Text)&&!CheckInputs.CheckIfDigit(pret_textbox.Text))
                 {
-                    MessageBox.Show("DB connection failed");
+                    DBConnection.Connect();
+                    if (DBConnection.IsConnected() == false)
+                    {
+                        MessageBox.Show("DB connection failed");
 
+                    }
+
+                    MySqlDataReader dataReader = DBConnection.Command("select * from masini where VIN ='" + VIN_textbox.Text + "';").ExecuteReader();
+                    if (!dataReader.Read())
+                    {
+
+
+                        if (Convert.ToInt32(department_textbox.Text) > 5 || Convert.ToInt32(department_textbox.Text) <= 0)
+                        {
+                            MessageBox.Show("Wrong department id!", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            Masina masina = new Masina(department_textbox.Text, VIN_textbox.Text, marca_textbox.Text, pret_textbox.Text, an_textbox.Text,
+                             proprietari_textbox.Text, model_textbox.Text, km_textbox.Text);
+
+                            masina.RegisterAttempt();
+
+                            Logs.addCarLog("admin", " AddCar ", "Successful ", "VIN: " + VIN_textbox.Text);
+
+                            MessageBox.Show("Car successfully added to database.", "Welcome", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                            clearDateMasini();
+                        }
+                    }
+                      else
+                    {
+
+                        MessageBox.Show("Car is already registered!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        Logs.addCarLog("admin", " AddCar ", "Failed ", "VIN: " + VIN_textbox.Text);
+
+                        clearDateMasini();
+
+                    }
+                    dataReader.Close();
                 }
-
-                MySqlDataReader dataReader = DBConnection.Command("select * from masini where VIN ='" + VIN_textbox.Text + "';").ExecuteReader();
-                if (!dataReader.Read())
-                {
-
-
-
-                    Masina masina = new Masina(department_textbox.Text, VIN_textbox.Text, marca_textbox.Text, pret_textbox.Text, an_textbox.Text,
-                     proprietari_textbox.Text, model_textbox.Text, km_textbox.Text);
-
-                    masina.RegisterAttempt();
-
-                    Logs.addCarLog("admin", " AddCar ", "Successful ", "VIN: " + VIN_textbox.Text);
-
-                    MessageBox.Show("Car successfully added to database.", "Welcome", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                    clearDateMasini();
-                }
-                else
-                {
-
-                    MessageBox.Show("Car is already registered!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    Logs.addCarLog("admin", " AddCar ", "Failed ", "VIN: " + VIN_textbox.Text);
-
-                    clearDateMasini();
-
-                }
-                dataReader.Close();
+                else MessageBox.Show("Department ID and price must be numbers!", "Error",
+              MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             else MessageBox.Show("Please fill al the fields !", "Error",
               MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
         }
 
         private void remove_car_Click_1(object sender, EventArgs e)

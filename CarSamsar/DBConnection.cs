@@ -9,17 +9,22 @@ using System.Diagnostics;
 
 namespace CarSamsar
 {
-
+    /**
+     * Static class used to connect to database and execute MySql commands easily.
+     */
     public class DBConnection
     {
         private static MySqlConnection connection;
         private static MySqlCommand command;
         public static string connectionString; //Doar pentru DBConnectionUnitTests
 
+        /**
+         * Connecting to database address.
+         */
         public static void Connect()
         {
-            //connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi");
-            connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
+            connection = new MySqlConnection("server=sql11.freesqldatabase.com;user=sql11415485;database=sql11415485;port=3306;password=IfrqccnCZi");
+            //connection = new MySqlConnection(connectionString); //Doar pentru DBConnectionUnitTests
             try
             {
                 connection.Open();
@@ -34,7 +39,9 @@ namespace CarSamsar
             }
 
         }
-
+        /**
+         * Setting MySql instruction.
+         */
         public static MySqlCommand Command(string instruction)
         {
             command.CommandText = instruction;

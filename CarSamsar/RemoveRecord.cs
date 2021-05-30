@@ -3,8 +3,12 @@
 
 namespace CarSamsar
 {
+
     class RemoveRecord
     {
+        /**
+         * Removing users from database(angajati,dateLogare).
+         */
         public static string removeUserByUsername(string username)
         {
             string attempt = "Failed";
@@ -13,7 +17,7 @@ namespace CarSamsar
             MySqlDataReader dataReader = DBConnection.Command("select angajatID from dateLogare where nume ='" + username + "';").ExecuteReader();
             if (dataReader.Read())
             {
-                angajatID = dataReader["angajatID"].ToString(); // Se ia id angajat pt dateLogare
+                angajatID = dataReader["angajatID"].ToString(); 
             }
             dataReader.Close();
             if (!angajatID.Equals(""))
@@ -24,7 +28,9 @@ namespace CarSamsar
             }
             return attempt;
         }
-
+        /**
+         * Removing cars from database(VIN).
+         */
         public static string removeCarByVIN(string VIN)
         {
             string attempt = "Failed";

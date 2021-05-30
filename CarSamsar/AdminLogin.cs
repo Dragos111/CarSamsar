@@ -2,6 +2,9 @@
 
 namespace CarSamsar
 {
+    /**
+     * Class used to construct an employee with all his details.
+     */
     public class AdminLogin
     {
         private string username;
@@ -14,7 +17,6 @@ namespace CarSamsar
         private string attempt = "Failed";
         private string angajatId;
 
-
         public AdminLogin(string username, string password, string firstname,
             string lastname, string cnp, string address, string salary)
         {
@@ -26,18 +28,20 @@ namespace CarSamsar
             this.address = address;
             this.salary = salary;
         }
-
+        /**
+         * Inserting employees.
+         */
         public string RegisterAttempt()
         {
-            DBConnection.Connect();
+            DBConnection.Connect();//Database connection
             if (DBConnection.IsConnected() == false)
             {
                 return attempt = "DB connection failed";
             }
 
             MySqlDataReader dataReader = DBConnection.Command("select * from dateLogare where nume ='" + username + "';").ExecuteReader();
-            if (dataReader.Read())
-            {
+            if (dataReader.Read()) //Check existing username
+            { 
                 if (username.Equals(dataReader["nume"]))
                 {
                     return attempt = "Username already taken";
@@ -48,7 +52,7 @@ namespace CarSamsar
 
             dataReader = DBConnection.Command("select * from angajati where cnp ='" + cnp + "';").ExecuteReader();
 
-            if (dataReader.Read())
+            if (dataReader.Read())//Check existing employee
             {
                 if (cnp.Equals(dataReader["cnp"]))
                 {
@@ -57,25 +61,25 @@ namespace CarSamsar
             }
             dataReader.Close();
 
-            if (!CnpValidator.IsValidCnp(cnp))
+            if (!CnpValidator.IsValidCnp(cnp))//CNP Validation
             {
                 return attempt = "CNP is not valid";
             }
 
             DBConnection.Command("insert into angajati(nume,prenume,cnp,adresa,salariu) " +
-                   "values('" + firstname + "','" + lastname + "','" + cnp + "','" + address + "','" + salary + "');").ExecuteNonQuery();
+                   "values('" + firstname + "','" + lastname + "','" + cnp + "','" + address + "','" + salary + "');").ExecuteNonQuery();//Inserting employee
 
             dataReader = DBConnection.Command("select angajatID from angajati where cnp ='" + cnp + "';").ExecuteReader();
-            if (dataReader.Read()) angajatId = dataReader["angajatID"].ToString(); // Se ia id angajat pt dateLogare
+            if (dataReader.Read()) angajatId = dataReader["angajatID"].ToString(); // Taking inserted emplyee's ID
             dataReader.Close();
 
             DBConnection.Command("insert into dateLogare(angajatID,parola,nume) " +
-                "values('" + angajatId + "','" + password + "','" + username + "');").ExecuteNonQuery();
+                "values('" + angajatId + "','" + password + "','" + username + "');").ExecuteNonQuery();//Inserting employee in dateLogare
 
 
-            dataReader = DBConnection.Command("select * from angajati where nume ='" + firstname + //Se verifica daca s-a bagat angajatul
+            dataReader = DBConnection.Command("select * from angajati where nume ='" + firstname +
                "' and cnp = '" + cnp + "';").ExecuteReader();
-            if (dataReader.Read())
+            if (dataReader.Read())// Verify if user added
             {
                 if (firstname.Equals(dataReader["nume"]) && cnp.Equals(dataReader["cnp"]))
                 {

@@ -13,25 +13,24 @@ namespace CarSamsar
 
         public static void addLog(string username, string type, string attempt)
         {
-            String timeStamp = DateTime.Now.ToString();
-            string logString = username + type + attempt; //+ timeStamp;
+            string timeStamp = DateTime.Now.ToString();
+            string logString = username + type + attempt+ timeStamp;//No timeStamp for UnitTests
             logs.Add(logString);
         }
 
-        public static void addUserLog(String username, String type, String attempt, String user)
+        public static void addUserLog(string username, string type, string attempt, string user)
         {
-            String timeStamp = DateTime.Now.ToString();
-            string logString = username + type + user + attempt;// + timeStamp;
+            string timeStamp = DateTime.Now.ToString();
+            string logString = username + type + user + attempt + timeStamp;//No timeStamp for UnitTests
             logs.Add(logString);
         }
 
-        public static void addCarLog(String username, String type, String attempt, String vin)
+        public static void addCarLog(string username, string type, string attempt, string vin)
         {
-            String timeStamp = DateTime.Now.ToString();
-            string logString = username + type + vin + attempt;// + timeStamp;
+            string timeStamp = DateTime.Now.ToString();
+            string logString = username + type + vin + attempt + timeStamp;//No timeStamp for UnitTests
             logs.Add(logString);
         }
-
 
         public static ArrayList getLogs()
         {

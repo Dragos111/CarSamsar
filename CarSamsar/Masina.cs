@@ -3,6 +3,9 @@
 
 namespace CarSamsar
 {
+    /**
+     * Class used to construct a car with all it's details.
+     */
     public class Masina
     {
         private string departmentId;
@@ -25,7 +28,7 @@ namespace CarSamsar
             this.model = model;
             this.km = k;
         }
-
+        //Inserts the car into the database
         public void RegisterAttempt()
         {
             DBConnection.Connect();

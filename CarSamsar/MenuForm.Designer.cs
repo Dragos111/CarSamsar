@@ -36,15 +36,15 @@ namespace CarSamsar
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.vinTextBox = new System.Windows.Forms.TextBox();
+            this.sellButton = new System.Windows.Forms.Button();
             this.exitButton2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.exitButton = new System.Windows.Forms.Button();
             this.webView = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.sellButton = new System.Windows.Forms.Button();
-            this.vinTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.searchGrid)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -55,28 +55,28 @@ namespace CarSamsar
             // searchGrid
             // 
             this.searchGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchGrid.Location = new System.Drawing.Point(5, 75);
-            this.searchGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchGrid.Location = new System.Drawing.Point(7, 92);
+            this.searchGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchGrid.Name = "searchGrid";
             this.searchGrid.RowHeadersWidth = 51;
             this.searchGrid.RowTemplate.Height = 24;
-            this.searchGrid.Size = new System.Drawing.Size(979, 567);
+            this.searchGrid.Size = new System.Drawing.Size(1305, 698);
             this.searchGrid.TabIndex = 1;
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(18, 17);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchBox.Location = new System.Drawing.Point(24, 21);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(204, 20);
+            this.searchBox.Size = new System.Drawing.Size(271, 22);
             this.searchBox.TabIndex = 2;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(345, 13);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Location = new System.Drawing.Point(460, 16);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(73, 26);
+            this.searchButton.Size = new System.Drawing.Size(97, 32);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -92,18 +92,19 @@ namespace CarSamsar
             "Timisoara",
             "Iasi",
             "Constanta"});
-            this.departmentBox.Location = new System.Drawing.Point(239, 17);
-            this.departmentBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.departmentBox.Location = new System.Drawing.Point(319, 21);
+            this.departmentBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.departmentBox.Name = "departmentBox";
-            this.departmentBox.Size = new System.Drawing.Size(92, 21);
+            this.departmentBox.Size = new System.Drawing.Size(121, 24);
             this.departmentBox.TabIndex = 4;
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 654);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 810);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(992, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1323, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -112,9 +113,10 @@ namespace CarSamsar
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(992, 675);
+            this.tabControl1.Size = new System.Drawing.Size(1323, 831);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -129,19 +131,68 @@ namespace CarSamsar
             this.tabPage1.Controls.Add(this.searchBox);
             this.tabPage1.Controls.Add(this.searchButton);
             this.tabPage1.Controls.Add(this.departmentBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(984, 649);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1315, 802);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cars";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(684, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Client E-mail :";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(796, 34);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(167, 22);
+            this.emailTextBox.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(736, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "VIN :";
+            // 
+            // vinTextBox
+            // 
+            this.vinTextBox.Location = new System.Drawing.Point(796, 4);
+            this.vinTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.vinTextBox.Name = "vinTextBox";
+            this.vinTextBox.Size = new System.Drawing.Size(167, 22);
+            this.vinTextBox.TabIndex = 7;
+            // 
+            // sellButton
+            // 
+            this.sellButton.Location = new System.Drawing.Point(812, 63);
+            this.sellButton.Margin = new System.Windows.Forms.Padding(4);
+            this.sellButton.Name = "sellButton";
+            this.sellButton.Size = new System.Drawing.Size(139, 28);
+            this.sellButton.TabIndex = 6;
+            this.sellButton.Text = "SELL";
+            this.sellButton.UseVisualStyleBackColor = true;
+            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
+            // 
             // exitButton2
             // 
-            this.exitButton2.Location = new System.Drawing.Point(909, 0);
+            this.exitButton2.Location = new System.Drawing.Point(1212, 0);
+            this.exitButton2.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton2.Name = "exitButton2";
-            this.exitButton2.Size = new System.Drawing.Size(75, 23);
+            this.exitButton2.Size = new System.Drawing.Size(100, 28);
             this.exitButton2.TabIndex = 5;
             this.exitButton2.Text = "Exit";
             this.exitButton2.UseVisualStyleBackColor = true;
@@ -151,19 +202,21 @@ namespace CarSamsar
             // 
             this.tabPage2.Controls.Add(this.exitButton);
             this.tabPage2.Controls.Add(this.webView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(984, 649);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1315, 802);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Employees Chat";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(909, 0);
+            this.exitButton.Location = new System.Drawing.Point(1212, 0);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(100, 28);
             this.exitButton.TabIndex = 1;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -177,64 +230,23 @@ namespace CarSamsar
             this.webView.CreationProperties = null;
             this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView.Location = new System.Drawing.Point(0, 0);
+            this.webView.Margin = new System.Windows.Forms.Padding(4);
             this.webView.Name = "webView";
-            this.webView.Size = new System.Drawing.Size(984, 649);
+            this.webView.Size = new System.Drawing.Size(1312, 799);
             this.webView.Source = new System.Uri("https://fitnessmetabolic.ro/backend/index2.html", System.UriKind.Absolute);
             this.webView.TabIndex = 0;
             this.webView.ZoomFactor = 1D;
             // 
-            // sellButton
-            // 
-            this.sellButton.Location = new System.Drawing.Point(609, 51);
-            this.sellButton.Name = "sellButton";
-            this.sellButton.Size = new System.Drawing.Size(104, 23);
-            this.sellButton.TabIndex = 6;
-            this.sellButton.Text = "SELL";
-            this.sellButton.UseVisualStyleBackColor = true;
-            this.sellButton.Click += new System.EventHandler(this.sellButton_Click);
-            // 
-            // vinTextBox
-            // 
-            this.vinTextBox.Location = new System.Drawing.Point(597, 3);
-            this.vinTextBox.Name = "vinTextBox";
-            this.vinTextBox.Size = new System.Drawing.Size(126, 20);
-            this.vinTextBox.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(552, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "VIN :";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(597, 28);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(126, 20);
-            this.emailTextBox.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Client E-mail :";
-            // 
             // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(992, 676);
+            this.ClientSize = new System.Drawing.Size(1323, 832);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
